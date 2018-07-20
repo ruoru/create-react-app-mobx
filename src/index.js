@@ -1,39 +1,23 @@
+import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-// import './index.css';
-// import App from './App';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(<App />, document.getElementById('root'));
+import App from './containers/App';
 
-import { observable, action } from "mobx";
-import { observer } from "mobx-react";
-import DevTools from "mobx-react-devtools";
-
-class AppState {
-  @observable timer = 0;
-
-  constructor() {
-    setInterval(() => {
-      this.timer += 1;
-    }, 1000);
-  }
-
-  @action.bound
-  reset() {
-    this.timer = 0;
-  }
+function requireAuth(nextState, replace, next) {
+  // check user here
+  next();
 }
 
-const TimerView = observer(({ appState }) => (
-  <button onClick={appState.reset}>Seconds passed: {appState.timer}</button>
-));
-
 render(
-  <div>
-    <TimerView appState={new AppState()} />
-    <DevTools />
-  </div>,
+  <BrowserRouter>
+    <Switch>
+      <Route path='/' component={App} onEnter={requireAuth}/>
+    </Switch>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 
