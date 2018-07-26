@@ -6,10 +6,11 @@ use create-react-app for build mobx project.
 1. add mobx in project.
 2. let vscode edit mobx code no waring.
 3. add antd, async/await, scss loader, and my environment.
-4. import outside /src files
+4. import outside /src files.
 
 ## Issue
 If you are interested in this project, you can give me feedback in the issue.
+
 如果你有任何疑问，请在 issue 提交给我，我会尽心帮你解答。
 
 ## How to get decorators in create-react-app
