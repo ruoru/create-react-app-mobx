@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
-import { observable, action } from "mobx";
+import { observable, action, runInAction } from "mobx";
 import { observer } from "mobx-react";
 
 class AppState {
   @observable timer = 0;
+  @observable name = '';
 
   constructor() {
     setInterval(() => {
       this.timer += 1;
     }, 1000);
+
+    this.load();
   }
 
   @action.bound
   reset() {
     this.timer = 0;
-    this.getData();
+  }
+
+  @action.bound
+  async load () {
+    const data = await this.getData();
+
+    runInAction(() => {
+      this.name = data.name;    console.log(this.name)
+    });
   }
 
   async getData () {
@@ -29,12 +40,16 @@ class AppState {
       }),
     })
     const result = await response.json();
-    console.log(result)
+    return result;
   }
 }
 
 const TimerView = observer(({ appState }) => (
-  <button onClick={appState.reset}>Seconds passed: {appState.timer}</button>
+  <div>
+    <button onClick={appState.reset}>Seconds passed: {appState.timer}</button>
+    <button onClick={appState.load}>xx</button>
+    <p>{appState.name}</p>
+  </div>
 ));
 
 class Test extends Component {
