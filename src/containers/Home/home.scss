@@ -1,0 +1,72 @@
+.home {
+  $headerColor: rgb(120, 120, 120);
+
+  height: 100%;
+  overflow: hidden;
+  background-image: url('./bg_home.png');
+  background-color: rgb(25, 10, 97);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  .header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0);
+    height: auto;
+    line-height: unset;
+
+    ul {
+      display: flex;
+      align-items: baseline;
+      color: rgb(140, 140, 140);
+      li {
+        margin: 10px 20px;
+      }
+      li:hover {
+        cursor: pointer;
+        color: #eee;
+      }
+      button {
+        background: rgba(0,0,0,0);
+        height: 32px;
+        border-radius: 8px;
+        border-color: $headerColor;
+        
+      }
+      button:hover {
+        border-color: #eee;
+        a {
+          color: #eee;
+        }
+      }
+    }
+
+    .right {
+      margin-right: 10%;
+    }
+    .left {
+      margin-left: 10%;
+    }
+  }
+
+  .content {
+    margin-top: 10%;
+    margin-left: 20%;
+    color: rgb(180, 180, 180);
+
+    h1 {
+      color: #fff;
+    }
+
+    button {
+      border-color: #fff;
+      margin-top: 60px;
+      height: 32px;
+      background: rgba(0,0,0,0);
+      border-radius: 8px;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
