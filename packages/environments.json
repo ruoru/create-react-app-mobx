@@ -8,8 +8,8 @@
     "mixpanelToken": "",
     "api": "//192.168.6.191:8000"
   },
-  "dev": {
-    "key": "dev",
+  "development": {
+    "key": "development",
     "name": "development",
     "NODE_ENV": "development",
     "GATEWAY_ENV": "development",
@@ -35,8 +35,8 @@
     "mixpanelToken": "",
     "api": "//0.0.0.0:8080"
   },
-  "prod": {
-    "key": "prod",
+  "production": {
+    "key": "production",
     "name": "production",
     "NODE_ENV": "production",
     "GATEWAY_ENV": "production",

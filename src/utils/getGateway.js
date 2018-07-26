@@ -4,7 +4,8 @@ import Gateway from './Gateway';
 var cachedGateway = null;
 
 function getGateway(options) {
-  const environment = environments[process.env.GATEWAY_ENV || 'prod'];
+  console.log(process.env)
+  const environment = environments[process.env.NODE_ENV];
   if (!cachedGateway) {
     cachedGateway = new Gateway({
       api: environment.api,
