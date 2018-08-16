@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ruoru/create-react-app-mobx/issues"
   },
-  "homepage": "https://github.com/ruoru/create-react-app-mobx#readme",
+  "homepage": "/",
   "dependencies": {
     "antd": "^3.7.0",
     "autoprefixer": "7.1.6",
