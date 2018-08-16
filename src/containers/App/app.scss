@@ -1,7 +1,13 @@
 @import '~antd/dist/antd.css';
 
 #app {
-  
+  > .ant-layout {
+    min-height: 100%;
+  }
+
+  ol, ul, dl {
+    margin-bottom: 0;
+  }
 }
 
 #components-layout-demo-top-side-2 .logo {

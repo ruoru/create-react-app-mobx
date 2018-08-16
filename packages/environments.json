@@ -6,7 +6,7 @@
     "GATEWAY_ENV": "local",
     "title": "本地环境",
     "mixpanelToken": "",
-    "api": "//localhost:8000"
+    "api": "//0.0.0.0:8000"
   },
   "development": {
     "key": "development",

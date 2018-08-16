@@ -1,0 +1,18 @@
+.ip-detail {
+  position: relative;
+  .title {
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+  .test-bot {
+    position: absolute;
+    right: 120px;
+    top: 18px;
+  }
+}

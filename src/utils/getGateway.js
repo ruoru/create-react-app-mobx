@@ -4,7 +4,6 @@ import Gateway from './Gateway';
 var cachedGateway = null;
 
 function getGateway(options) {
-  console.log(process.env)
   const environment = environments[process.env.NODE_ENV];
   if (!cachedGateway) {
     cachedGateway = new Gateway({
@@ -13,7 +12,7 @@ function getGateway(options) {
       onAuthFail: error => {
         window.localStorage.clear();
         document.cookie = null;
-        window.location.href = `http://sso.gowild.top/login/?redirectURL=http:${environment.api}&&authURL=http:${environment.api}/sso_auth/`;
+        //window.location.href = `//sso.gowild.top/login/?redirectURL=http:${environment.api}&&authURL=http:${environment.api}/sso_auth/`;
       }
     });
   }

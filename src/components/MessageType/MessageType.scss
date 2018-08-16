@@ -1,0 +1,45 @@
+$other-bgcolor: linear-gradient(to bottom right, rgba(125, 123, 253, .5), rgba(141, 247, 238, .5));;
+$me-bgcolor: #ffffff;
+
+.others-text {
+  position: relative; width: 100%; margin-bottom: 20px; overflow: hidden;
+  .info {
+    display: flex; margin-bottom: 2px; font-size: 12px; line-height: 14px; color: #b2b2b2; width: 100%;
+    .name {
+
+    }
+    .datetime {
+      margin-left: 8px;
+    }
+  }
+  .bubble {
+    color: #000; background: $other-bgcolor; border: 1px solid #f0f0f0; float: left; width: auto;
+    max-width: 100%; margin-right: 35px; position: relative; border-radius: 3px; font-size: 13px;
+    line-height: 20px; word-wrap: break-word; text-align: left;
+
+    .arrow {
+      display: none;
+    }
+    .arrow-bg {
+      display: none;
+      color: #000; background-color: $other-bgcolor; border: 1px solid #f0f0f0; position: relative; border-radius: 3px;
+      padding: 8px 12px; font-size: 13px; line-height: 20px; word-wrap: break-word;
+    }
+    .text {
+      box-sizing: border-box; outline: none; border-radius: 3px; padding: 8px 12px; font-size: 13px; line-height: 20px; word-wrap: break-word;
+    }
+  }
+  ::after {
+    display: block; clear: both;
+  }
+}
+
+.me-text {
+  @extend .others-text;
+  .info {
+    display: flex; flex-direction: row-reverse;
+  }
+  .bubble {
+    float: right; margin-right: 0; margin-left: 35px; background: $me-bgcolor;
+  }
+}

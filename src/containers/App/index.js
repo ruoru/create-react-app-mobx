@@ -1,74 +1,38 @@
+import './app.scss';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import React, { Component } from 'react';
-import './app.css';
-
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Switch, Route, Redirect } from "react-router-dom";
+import { Layout, LocaleProvider } from 'antd';
 import Header from '../../components/Header';
-import Test from '../Test';
+import IPList from '../IPList';
+import IPDeatil from '../IPDetail';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.appDOM = null;
   }
 
   componentDidMount() {
-    this.appDOM.minHeight = document.documentElement.clientHeight;
+    //this.appDOM.style.minHeight = `${document.documentElement.clientHeight}px`;
+    document.getElementById('app').style.minHeight = `${document.documentElement.clientHeight}px`;
   }
 
   render() {
     return (
-      <div id="app" ref={dom => this.appDOM = dom}>
-        <Layout>
+      <LocaleProvider locale={zh_CN}>
+        <Layout id="app" ref={dom => this.appDOM = dom} >
           <Header />
           <div className="header-line" />
-          <Layout>
-
-            <Layout.Sider width={200} style={{ background: '#fff' }}>
-              <Menu
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{ height: '100%', borderRight: 0 }}
-              >
-                <Menu.SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
-                  <Menu.Item key="1">option1</Menu.Item>
-                  <Menu.Item key="2">option2</Menu.Item>
-                  <Menu.Item key="3">option3</Menu.Item>
-                  <Menu.Item key="4">option4</Menu.Item>
-                </Menu.SubMenu>
-                <Menu.SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-                  <Menu.Item key="5">option5</Menu.Item>
-                  <Menu.Item key="6">option6</Menu.Item>
-                  <Menu.Item key="7">option7</Menu.Item>
-                  <Menu.Item key="8">option8</Menu.Item>
-                </Menu.SubMenu>
-                <Menu.SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-                  <Menu.Item key="9">option9</Menu.Item>
-                  <Menu.Item key="10">option10</Menu.Item>
-                  <Menu.Item key="11">option11</Menu.Item>
-                  <Menu.Item key="12">option12</Menu.Item>
-                </Menu.SubMenu>
-              </Menu>
-            </Layout.Sider>
-            <Layout style={{ padding: '0 24px 24px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
-              <Layout.Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                Content
-                <Test />
-              </Layout.Content>
-            </Layout>
-          </Layout>
+          <Switch>
+            <Route path='/app/ips/:id' component={IPDeatil} />
+            <Route path='/app/ips' component={IPList} exact />
+            <Redirect from='/' to='/app/ips' />
+          </Switch>
         </Layout>
-      </div>
+      </LocaleProvider>
     );
   }
 }
-
-
-
-
 
 export default App;

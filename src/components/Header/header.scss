@@ -8,6 +8,16 @@
   display: flex;
   justify-content: space-between;
 
+  .left {
+    display: flex;
+    > li {
+      height: 64px;
+    }
+    .ant-menu {
+      line-height: 63px;
+      margin-left: 60px;
+    }
+  }
   .right {
     display: flex;
   }

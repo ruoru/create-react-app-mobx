@@ -1,0 +1,15 @@
+.selection-card {
+  cursor: pointer;
+  text-align: center;
+  .title {
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+  }
+  .check {
+    text-align: right;
+  }
+  img{
+    height: 56px;
+  }
+}

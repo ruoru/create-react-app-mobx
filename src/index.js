@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import './index.css';
+import './index.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
@@ -21,6 +21,11 @@ render(
       <Route path='/app' component={App} onEnter={requireAuth} />
       <Redirect from='/' to='/home' exact />
       <Route path='/*' component={NotFound} />
+      {/* <Route path="/index" getComponent={(location, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./containers/Index').default);
+        }, 'Index');
+      }} /> */}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

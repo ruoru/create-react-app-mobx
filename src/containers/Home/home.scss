@@ -70,3 +70,19 @@
     }
   }
 }
+
+.home-modal {
+  ul > li {
+    display: flex;
+
+    margin-bottom: 16px;
+    .name {
+      width: 30%;
+      text-align: right;
+      line-height: 32px;
+    }
+    .description {
+      margin-left: 16px;
+    }
+  }
+}

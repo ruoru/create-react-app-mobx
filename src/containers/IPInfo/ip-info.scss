@@ -1,0 +1,59 @@
+.ip-info{
+  min-width: 80%;
+  min-height: 100%;
+  h2 {
+    
+  }
+
+  .info-group{
+    li {
+      display: flex;
+      margin-bottom: 10px;
+      .name {
+        width: 20%;
+        text-align: right;
+        line-height: 32px;
+      }
+    
+      .value {
+        margin-left: 24px;
+        width: 60%;
+      }
+    }
+  }
+
+
+  .bar {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .ips {
+    .card-description {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ant-card-body {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.ip-info-modal {
+  ul > li {
+    display: flex;
+
+    margin-bottom: 16px;
+    .name {
+      width: 30%;
+      text-align: right;
+      line-height: 32px;
+    }
+    .description {
+      margin-left: 16px;
+    }
+  }
+}

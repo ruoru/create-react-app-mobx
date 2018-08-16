@@ -16,8 +16,8 @@ class Gateway {
     });
 
     if (!obj.csrftoken) {
-      if (localStorage.getItem('tokenId')) {
-        obj.csrftoken = localStorage.getItem('tokenId');
+      if (localStorage.getItem('csrftoken')) {
+        obj.csrftoken = localStorage.getItem('csrftoken');
       } else {
         this.onAuthFail('no cookie');
       }
@@ -51,7 +51,7 @@ class Gateway {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'x-csrftoken': localStorage.getItem('tokenId') || csrftoken,
+        'x-csrftoken': csrftoken,
       },
       mode: 'cors',
     };
@@ -73,28 +73,17 @@ class Gateway {
   }
 
   async requestAndResponse(fetchURL, fetchOptions) {
-
     const response = await fetch(fetchURL, fetchOptions);
     const status = response.status;
-
-    //delete option
-    if (fetchOptions.method === 'DELETE') {
-      const body = response.text();
-      if (status < 400) {
-        return body;
-      } else {
-        throw new Error(body.error.message);
-      }
-    }
-
     const body = await response.json();
 
     if (status === 401) {
       this.onAuthFail(body);
     } else if (status === 403) {
       alert('您没有权限，请联系管理员。');
+      //window.location.href = `/`;
     } else if (!response || response.status >= 400) {
-      alert('。')
+      alert('请求错误')
       let error = new Error(body.error.message);
       error.status = status;
       throw error;
