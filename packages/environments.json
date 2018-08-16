@@ -6,7 +6,7 @@
     "GATEWAY_ENV": "local",
     "title": "本地环境",
     "mixpanelToken": "",
-    "api": "//192.168.6.191:8000"
+    "api": "//localhost:8000"
   },
   "development": {
     "key": "development",
@@ -15,7 +15,7 @@
     "GATEWAY_ENV": "development",
     "title": "开发环境",
     "mixpanelToken": "",
-    "api": "//172.26.1.211:8001"
+    "api": "//0.0.0.0:8000"
   },
   "test": {
     "key": "test",
@@ -24,7 +24,7 @@
     "GATEWAY_ENV": "testing",
     "title": "测试环境",
     "mixpanelToken": "",
-    "api": "//0.0.0.0:8001"
+    "api": "//0.0.0.0:8000"
   },
   "staging": {
     "key": "staging",
@@ -33,15 +33,15 @@
     "GATEWAY_ENV": "staging",
     "title": "演示环境",
     "mixpanelToken": "",
-    "api": "//0.0.0.0:8080"
+    "api": "//0.0.0.0:8000"
   },
   "production": {
     "key": "production",
     "name": "production",
     "NODE_ENV": "production",
     "GATEWAY_ENV": "production",
-    "title": "标注系统",
+    "title": "production",
     "mixpanelToken": "",
-    "api": "//172.26.1.211:8001"
+    "api": "//0.0.0.0:8000"
   }
 }
